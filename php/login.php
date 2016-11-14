@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html>
-<head>
-<tile>Lost And Found</title>
-<meta charset="UTF-8">
-</head>
-<body>
-<form action="login.php" method="post">
-Username:<input type="text" name="username"/><br />
-Password:<input type="password" name="password"/><br />
-</form>
 <?php
-    echo $_POST['username'];
-    echo $_REQUEST['password'];
+$db = new SQLite3("../sql/test.db");
+$result = $db->query('SELECT * FROM Trusted_Staff');
+$result->fetchArray()['Password'];
+echo "You have reached the login step!";
+echo "Username :".$_POST['username'];
+echo "Password :".$_POST['password'];
+$hash = $result->fetchArray()['Password'];
+echo $hash;
+
+if(password_verify($_POST['password'],$hash))
+{
+    echo "\nCorrect Password, ".$result->fetchArray()['user_name'];
+}
+else
+{
+    echo "\nIncorrect Password";
+}
 ?>
-</body>
 </html>

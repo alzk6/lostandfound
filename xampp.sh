@@ -1,3 +1,3 @@
-#this script is useless unless you are on a linux system.
+#this script is useless unless you are on a linux system, ignore it.
 #!/bin/bash
-git clone https://github.com/benkrueger/lostandfound.git /opt/lampp/htdocs/lostandfound
+sudo cp -r ~/stuff/lostandfound /opt/lampp/htdocs/
