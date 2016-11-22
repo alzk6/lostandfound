@@ -36,7 +36,7 @@ CREATE TABLE Trusted_Staff(
     First VARCHAR(20),
     Last VARCHAR(20),
     Middle VARCHAR(20),
-    Password VARCHAR(40)
+    Password VARCHAR(40),
     PRIMARY KEY(User_id,user_name)
 );
 
@@ -52,8 +52,18 @@ CREATE TABLE Item_Claimed(
 CREATE TABLE Non_Recoverable(
     entry_id REFERENCES Item_Entry
 );
+--BEGIN INSERTING TEST DATA INTO DATABASE....
 
 INSERT INTO Trusted_Staff
 Values("00000000","bokkw4","Benjamin","Krueger","Oliver","$2y$10$sJYahZ2qOH5.gZHLTMLml.d00NMaFt7mSx3xvAyZC4PKEEULON2si");
+
 --Password field is "dankmemes" put through the php cryptohash function
 --storing hashes of Password is pretty standard practice.
+--Add item to database
+INSERT INTO Item_Entry Values(0);
+INSERT INTO Finds Values(0,"bokkw4");
+INSERT INTO Submitted_by Values("00000000",0);
+INSERT INTO Describes Values(0);
+INSERT INTO Description Values("Backpack","RED",0);
+INSERT INTO Discovery_event Values(0,"bokkw4", '2016:11:22 15:00', "Library","115");
+
