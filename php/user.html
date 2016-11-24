@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<tile>Lost And Found</title>
+<meta charset="UTF-8">
+</head>
+<body>
+<form action="user.php" method="post">
+Description:<input type="text" name="username"/><br />
+
+<select>
+	<option value="red">Red</option>
+	<option value="blue">Blue</option>
+	<option value="green">Green</option>
+	<option value="black">Black</option>
+	<option value="brown">Brown</option>
+	<option value="white">White</option>
+	<option value="other">Other</option>
+</select>
+<label for="when">Date:</label>
+<input id="when" name="when" type="date" min="2016-01-01" max="2016-12-01">
+<input type="submit" name="submit" value="Search Db" />
+</form>
+</body>
+</html>
