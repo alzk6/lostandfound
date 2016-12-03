@@ -1,4 +1,17 @@
 <?php
+
+$servername = "localhost";
+$username = "username";
+$password = "password";
+$dbname = "myDB";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+
 /* these Php classes are going to be useful for not having to have ugly SQL code inlined with the web interface code.
 */ 
 
@@ -59,9 +72,10 @@ EOD;
 
 	//As Outlined by P2, edit an existing entry.
 	//
-	public function editEntry()
+	public function editEntry($e_id,$newDesc,$newCol) //takes in item id and new description/color
 	{
-
+		$sql = "UPDATE Description SET Type = $newDesc, color = $newCol WHERE INTEGER REFERENCES = e_id"; //Updates item description
+		echo "Entry Updated";
 	}
 	//As Outlined by P2, returns results of a query.
 	//performs a SELECT Query on the existing table.
@@ -90,7 +104,8 @@ EOD;
 	//returns current largest entry id in database.
 	private function getLargestEid()
 	{
-		return 1;
+		$LargeID = "SELECT MAX(entry_id) FROM Item_Entry"; //Should get largest id from Item_Entry
+		return $LargID;
 	}
 
 	function __destruct()
